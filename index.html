@@ -3,16 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Generator</title>
+    <title>Password Tool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-    <h1>Random Code Generator</h1>
-    <div class="password" id="password">Click "Generate" for a new code</div>
-    <button onclick="generatePassword()">Generate code</button>
-    <button class="copy-btn" id="copyButton" onclick="copyPassword()">Copy code</button>
-</div>
+    <div class="noise"></div>
+
+    <div class="app">
+        <div class="top-bar">
+            <div class="brand">
+                <span class="brand-icon">&#9919;</span>
+                <span class="brand-name">pass<span class="accent">forge</span></span>
+            </div>
+            <span class="tag">v1.0</span>
+        </div>
+
+        <section class="panel">
+            <h2 class="panel-title">Generate</h2>
+            <p class="panel-sub">A fresh random code, ready to go.</p>
+            <div class="output" id="password">
+                <span class="muted">hit generate</span>
+            </div>
+            <div class="actions">
+                <button class="gen-btn" onclick="generatePassword()">Generate</button>
+                <button class="copy-btn" onclick="copyPassword()">Copy</button>
+            </div>
+        </section>
+
+        <div class="divider">
+            <span>or check one</span>
+        </div>
+
+        <section class="panel">
+            <h2 class="panel-title">Strength Check</h2>
+            <p class="panel-sub">Paste or type any password to see how it holds up.</p>
+            <input type="text" id="passwordInput" class="input" placeholder="e.g. my-super-secret-thing" oninput="checkStrength()">
+
+            <div class="meter-wrap">
+                <div class="meter">
+                    <div class="meter-fill" id="strengthBar"></div>
+                </div>
+                <div class="meter-labels">
+                    <span class="meter-label" id="strengthLabel"></span>
+                    <span class="meter-score" id="strengthScore"></span>
+                </div>
+            </div>
+
+            <div class="verdict" id="crackTime"></div>
+
+            <ul class="notes" id="feedbackList"></ul>
+        </section>
+
+        <footer class="footer">
+            made with curiosity
+        </footer>
+    </div>
+
 <script src="script.js"></script>
 </body>
 </html>
