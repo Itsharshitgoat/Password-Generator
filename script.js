@@ -396,7 +396,7 @@ function analyzePassword(pw) {
     }
 
     if (typesUsed === 4 && pw.length >= 16 && !isCommon && !dictWord && !isKeyboardWalk(pw) && !isRepeatingPattern(pw)) {
-        score += 10;
+        score += 15;
     }
 
     var uniqueChars = {};
